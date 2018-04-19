@@ -13,8 +13,6 @@ import static homework.lesson08.Base.wait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
 public class ResultsPage {
-
-
     private static final Logger LOG = LogManager.getLogger(ResultsPage.class);
 
     ResultsPage(WebDriver driver) {
@@ -55,24 +53,43 @@ public class ResultsPage {
             try {
 
                 if (e.getText().contains("$26.00")) {
+
+                    LOG.info("Select Printed Dress only for $26.00");
                     e.click();
+
+                    LOG.info("Add to chart");
                     bAddToChart.click();
                     wait.until(elementToBeClickable(bConfirm));
+
+                    LOG.info("Confirm level = 0");
                     bConfirm.click();
                     wait.until(elementToBeClickable(bMoreConfirm));
+
+                    LOG.info("Confirm level = 1");
                     bMoreConfirm.click();
                     wait.until(elementToBeClickable(bMoreConfirm2));
+
+                    LOG.info("Confirm level = 3");
                     bMoreConfirm2.click();
                     wait.until(elementToBeClickable(bCheckout));
+
+                    LOG.info("Confirm level = 4");
                     chConfirm.click();
+
+                    LOG.info("Check");
                     bCheckout.click();
                     wait.until(elementToBeClickable(bPay));
+
+                    LOG.info("Finally Pay !!!");
                     bPay.click();
                     wait.until(elementToBeClickable(bMoreConfirm3));
+
+                    LOG.info("More confirm !!!");
                     bMoreConfirm3.click();
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();
+                LOG.debug(ex.getMessage());
             }
         }
         LOG.debug("return new AccountPage");
