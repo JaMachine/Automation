@@ -13,7 +13,7 @@ public class FirstTest extends Base {
     LoginPage page = new LoginPage(driver);
 
     @Test
-    public void t0_Login() {
+    public void buySomethings() {
 
         page
                 .logIn(driver)

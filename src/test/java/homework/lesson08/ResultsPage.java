@@ -69,11 +69,11 @@ public class ResultsPage {
                     bMoreConfirm.click();
                     wait.until(elementToBeClickable(bMoreConfirm2));
 
-                    LOG.info("Confirm level = 3");
+                    LOG.info("Confirm level = 2");
                     bMoreConfirm2.click();
                     wait.until(elementToBeClickable(bCheckout));
 
-                    LOG.info("Confirm level = 4");
+                    LOG.info("Confirm level = 3");
                     chConfirm.click();
 
                     LOG.info("Check");
