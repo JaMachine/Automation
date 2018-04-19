@@ -49,29 +49,34 @@ public class ResultsPage {
     private WebElement bPay;
 
 
-    public void selectProduct() {
+    public AccountPage orderProduct(WebDriver d) {
+
         for (WebElement e : results) {
-            if (e.getText().contains("$26.00")) {
-                e.click();
-                bAddToChart.click();
-                wait.until(elementToBeClickable(bConfirm));
-                bConfirm.click();
-                wait.until(elementToBeClickable(bMoreConfirm));
-                bMoreConfirm.click();
-                wait.until(elementToBeClickable(bMoreConfirm2));
-                bMoreConfirm2.click();
-                wait.until(elementToBeClickable(bCheckout));
-                chConfirm.click();
-                bCheckout.click();
-                wait.until(elementToBeClickable(bPay));
-                bPay.click();
-                wait.until(elementToBeClickable(bMoreConfirm3));
-                bMoreConfirm3.click();
+            try {
 
+                if (e.getText().contains("$26.00")) {
+                    e.click();
+                    bAddToChart.click();
+                    wait.until(elementToBeClickable(bConfirm));
+                    bConfirm.click();
+                    wait.until(elementToBeClickable(bMoreConfirm));
+                    bMoreConfirm.click();
+                    wait.until(elementToBeClickable(bMoreConfirm2));
+                    bMoreConfirm2.click();
+                    wait.until(elementToBeClickable(bCheckout));
+                    chConfirm.click();
+                    bCheckout.click();
+                    wait.until(elementToBeClickable(bPay));
+                    bPay.click();
+                    wait.until(elementToBeClickable(bMoreConfirm3));
+                    bMoreConfirm3.click();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
-            LOG.info("M A Y   B E  H E R E   ? ? ? ");
-
         }
+        LOG.debug("return new AccountPage");
+        return new AccountPage(d);
     }
 
 }
